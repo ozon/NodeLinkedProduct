@@ -30,4 +30,4 @@ Uninstalling the plugin without keeping user data removes the custom field and c
 
 ## Theme adjustments
 
-Override the Twig blocks in `@Storefront/storefront/component/node-linked-product/teaser.html.twig` to adjust the markup or extend the SCSS file located at `Resources/app/storefront/src/scss/linked-product.scss` for styling.
+Override the Twig blocks in `@Storefront/storefront/component/node-linked-product/teaser.html.twig` to adjust the markup or extend the SCSS file located at `src/Resources/app/storefront/src/scss/linked-product.scss` for styling.
