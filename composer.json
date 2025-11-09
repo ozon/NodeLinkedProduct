@@ -1,0 +1,33 @@
+{
+  "name": "node/linked-product",
+  "description": "Displays a linked product on the PDP and CMS pages.",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "version": "1.0.0",
+  "require": {
+    "php": ">=8.2",
+    "shopware/core": ">=6.6.0 <6.8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Node\\LinkedProduct\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Node\\LinkedProduct\\Test\\": "tests/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Node\\LinkedProduct\\NodeLinkedProduct",
+    "copyright": "Node",
+    "label": {
+      "en-GB": "Linked Product",
+      "de-DE": "Verknüpftes Produkt"
+    },
+    "description": {
+      "en-GB": "Displays a linked product on the product detail page and in Shopping Experiences.",
+      "de-DE": "Zeigt ein verknüpftes Produkt auf der Produktdetailseite und in Erlebniswelten an."
+    }
+  }
+}
