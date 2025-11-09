@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Node\LinkedProduct;
 
 use Doctrine\DBAL\Connection;
@@ -32,19 +34,17 @@ class NodeLinkedProduct extends Plugin
             ['name' => self::CUSTOM_FIELD_SET_NAME]
         );
 
-        if (!is_string($setId)) {
-            return;
+        if (is_string($setId)) {
+            $connection->executeStatement(
+                'DELETE FROM `custom_field_set_relation` WHERE `set_id` = :id',
+                ['id' => $setId]
+            );
+
+            $connection->executeStatement(
+                'DELETE FROM `custom_field_set_translation` WHERE `custom_field_set_id` = :id',
+                ['id' => $setId]
+            );
         }
-
-        $connection->executeStatement(
-            'DELETE FROM `custom_field_set_relation` WHERE `set_id` = :id',
-            ['id' => $setId]
-        );
-
-        $connection->executeStatement(
-            'DELETE FROM `custom_field_set_translation` WHERE `custom_field_set_id` = :id',
-            ['id' => $setId]
-        );
 
         $connection->executeStatement(
             'DELETE FROM `custom_field` WHERE `name` = :name',
@@ -52,8 +52,8 @@ class NodeLinkedProduct extends Plugin
         );
 
         $connection->executeStatement(
-            'DELETE FROM `custom_field_set` WHERE `id` = :id',
-            ['id' => $setId]
+            'DELETE FROM `custom_field_set` WHERE `name` = :name',
+            ['name' => self::CUSTOM_FIELD_SET_NAME]
         );
     }
 }
