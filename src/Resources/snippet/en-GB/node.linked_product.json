@@ -1,7 +1,8 @@
 {
     "node": {
         "linked_product": {
-            "title": "Recommended accessory"
+            "title": "Recommended accessory",
+            "cmsLabel": "Linked Product"
         }
     }
 }
