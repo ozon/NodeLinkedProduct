@@ -1,3 +1,4 @@
+<!-- src/Resources/config/services.xml -->
 <?xml version="1.0" ?>
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,8 +10,9 @@
             <argument type="service" id="sales_channel.product.repository" />
         </service>
 
+        <!-- Wichtig: richtiger Tag -->
         <service id="Node\LinkedProduct\Cms\Element\LinkedProductCmsResolver">
-            <tag name="shopware.cms.element" />
+            <tag name="shopware.cms.data_resolver" />
         </service>
 
         <service id="Node\LinkedProduct\Storefront\Subscriber\ProductPageSubscriber">
