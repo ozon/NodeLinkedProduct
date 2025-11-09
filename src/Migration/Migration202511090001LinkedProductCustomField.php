@@ -7,8 +7,8 @@ namespace Node\LinkedProduct\Migration;
 use DateTimeImmutable;
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Defaults;
+use Shopware\Core\Framework\Migration\MigrationStep;
 use Shopware\Core\Framework\Uuid\Uuid;
-use Shopware\Core\Migration\MigrationStep;
 use function json_encode;
 use const JSON_THROW_ON_ERROR;
 
