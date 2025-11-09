@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Node\LinkedProduct;
 
@@ -10,8 +8,7 @@ use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 
 class NodeLinkedProduct extends Plugin
 {
-    public const CUSTOM_FIELD_SET_NAME = 'node_linked_product';
-    public const CUSTOM_FIELD_NAME = 'node_linked_product_id';
+    public const LINKED_PRODUCT_CUSTOM_FIELD_NAME = 'node_linked_product_id';
 
     public function uninstall(UninstallContext $context): void
     {
@@ -21,7 +18,7 @@ class NodeLinkedProduct extends Plugin
             return;
         }
 
-        $container = $this->container;
+        $container = $this.container;
         if (!$container || !$container->has(Connection::class)) {
             return;
         }
@@ -30,30 +27,25 @@ class NodeLinkedProduct extends Plugin
         $connection = $container->get(Connection::class);
 
         $setId = $connection->fetchOne(
-            'SELECT `id` FROM `custom_field_set` WHERE `name` = :name',
-            ['name' => self::CUSTOM_FIELD_SET_NAME]
+            'SELECT id FROM custom_field_set WHERE name = :name',
+            ['name' => 'node_linked_product_set']
         );
 
-        if (is_string($setId)) {
+        if ($setId) {
             $connection->executeStatement(
-                'DELETE FROM `custom_field_set_relation` WHERE `set_id` = :id',
+                'DELETE FROM custom_field_set WHERE id = :id',
                 ['id' => $setId]
             );
 
             $connection->executeStatement(
-                'DELETE FROM `custom_field_set_translation` WHERE `custom_field_set_id` = :id',
+                'DELETE FROM custom_field_set_relation WHERE set_id = :id',
+                ['id' => $setId]
+            );
+
+            $connection->executeStatement(
+                'DELETE FROM custom_field WHERE set_id = :id',
                 ['id' => $setId]
             );
         }
-
-        $connection->executeStatement(
-            'DELETE FROM `custom_field` WHERE `name` = :name',
-            ['name' => self::CUSTOM_FIELD_NAME]
-        );
-
-        $connection->executeStatement(
-            'DELETE FROM `custom_field_set` WHERE `name` = :name',
-            ['name' => self::CUSTOM_FIELD_SET_NAME]
-        );
     }
 }
