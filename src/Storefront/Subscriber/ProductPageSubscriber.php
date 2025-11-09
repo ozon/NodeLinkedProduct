@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Node\LinkedProduct\Storefront\Subscriber;
 
 use Node\LinkedProduct\Cms\Element\LinkedProductCmsElement;
