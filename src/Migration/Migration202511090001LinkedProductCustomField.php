@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Node\LinkedProduct\Migration;
 
@@ -9,8 +7,6 @@ use Doctrine\DBAL\Connection;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Migration\MigrationStep;
 use Shopware\Core\Framework\Uuid\Uuid;
-use function json_encode;
-use const JSON_THROW_ON_ERROR;
 
 class Migration202511090001LinkedProductCustomField extends MigrationStep
 {
@@ -33,7 +29,7 @@ class Migration202511090001LinkedProductCustomField extends MigrationStep
 
     public function updateDestructive(Connection $connection): void
     {
-        // no destructive changes required
+        // Keine destructive Updates
     }
 
     private function ensureCustomFieldSet(Connection $connection, string $now): string
