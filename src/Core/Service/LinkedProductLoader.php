@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Node\LinkedProduct\Core\Service;
 
 use Shopware\Core\Content\Product\ProductEntity;
