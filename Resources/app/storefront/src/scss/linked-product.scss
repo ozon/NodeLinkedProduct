@@ -1,0 +1,32 @@
+.node-linked-product-teaser {
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+
+    &__header {
+        margin-bottom: 0.75rem;
+    }
+
+    &__link {
+        display: flex;
+        gap: 1rem;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__image img {
+        max-width: 120px;
+        height: auto;
+        display: block;
+    }
+
+    &__name {
+        font-weight: 600;
+    }
+
+    &__price {
+        margin-top: 0.5rem;
+        font-size: 1.125rem;
+    }
+}
