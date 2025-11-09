@@ -1,19 +1,19 @@
 <?php
 
-namespace Node\\LinkedProduct\\Test\\Cms\\Element;
+namespace Node\LinkedProduct\Test\Cms\Element;
 
-use Node\\LinkedProduct\\Cms\\Element\\LinkedProductCmsElement;
-use Node\\LinkedProduct\\Cms\\Element\\LinkedProductCmsResolver;
-use Node\\LinkedProduct\\Core\\Service\\LinkedProductLoader;
-use PHPUnit\\Framework\\TestCase;
-use Shopware\\Core\\Content\\Cms\\Aggregate\\CmsSlot\\CmsSlotEntity;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\CriteriaCollection;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\ElementDataCollection;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\FieldConfig;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\FieldConfigCollection;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\ResolverContext\\ResolverContext;
-use Shopware\\Core\\System\\SalesChannel\\SalesChannelContext;
-use Symfony\\Component\\HttpFoundation\\Request;
+use Node\LinkedProduct\Cms\Element\LinkedProductCmsElement;
+use Node\LinkedProduct\Cms\Element\LinkedProductCmsResolver;
+use Node\LinkedProduct\Core\Service\LinkedProductLoader;
+use PHPUnit\Framework\TestCase;
+use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
+use Shopware\Core\Content\Cms\DataResolver\CriteriaCollection;
+use Shopware\Core\Content\Cms\DataResolver\ElementDataCollection;
+use Shopware\Core\Content\Cms\DataResolver\FieldConfig;
+use Shopware\Core\Content\Cms\DataResolver\FieldConfigCollection;
+use Shopware\Core\Content\Cms\DataResolver\ResolverContext\ResolverContext;
+use Shopware\Core\System\SalesChannel\SalesChannelContext;
+use Symfony\Component\HttpFoundation\Request;
 
 class LinkedProductCmsResolverTest extends TestCase
 {

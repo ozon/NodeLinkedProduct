@@ -1,9 +1,9 @@
 <?php
 
-namespace Node\\LinkedProduct\\Cms\\Element;
+namespace Node\LinkedProduct\Cms\Element;
 
-use Shopware\\Core\\Content\\Product\\ProductEntity;
-use Shopware\\Core\\Framework\\Struct\\Struct;
+use Shopware\Core\Content\Product\ProductEntity;
+use Shopware\Core\Framework\Struct\Struct;
 
 class LinkedProductCmsElement extends Struct
 {

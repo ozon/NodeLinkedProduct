@@ -1,10 +1,10 @@
 <?php
 
-namespace Node\\LinkedProduct\\Migration;
+namespace Node\LinkedProduct\Migration;
 
-use Doctrine\\DBAL\\Connection;
-use Shopware\\Core\\Framework\\Plugin\\Migration\\MigrationStep;
-use Shopware\\Core\\Framework\\Uuid\\Uuid;
+use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\Plugin\Migration\MigrationStep;
+use Shopware\Core\Framework\Uuid\Uuid;
 
 class Migration202511090001LinkedProductCustomField extends MigrationStep
 {

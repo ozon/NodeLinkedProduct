@@ -10,16 +10,16 @@
   },
   "autoload": {
     "psr-4": {
-      "Node\\\\LinkedProduct\\\\": "src/"
+      "Node\\LinkedProduct\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Node\\\\LinkedProduct\\\\Test\\\\": "tests/"
+      "Node\\LinkedProduct\\Test\\": "tests/"
     }
   },
   "extra": {
-    "shopware-plugin-class": "Node\\\\LinkedProduct\\\\NodeLinkedProduct",
+    "shopware-plugin-class": "Node\\LinkedProduct\\NodeLinkedProduct",
     "copyright": "Node",
     "label": {
       "en-GB": "Linked Product",

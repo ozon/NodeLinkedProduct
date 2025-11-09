@@ -1,10 +1,10 @@
 <?php
 
-namespace Node\\LinkedProduct;
+namespace Node\LinkedProduct;
 
-use Doctrine\\DBAL\\Connection;
-use Shopware\\Core\\Framework\\Plugin;
-use Shopware\\Core\\Framework\\Plugin\\Context\\UninstallContext;
+use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\Plugin;
+use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 
 class NodeLinkedProduct extends Plugin
 {

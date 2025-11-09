@@ -1,20 +1,20 @@
 <?php
 
-namespace Node\\LinkedProduct\\Test\\Core\\Service;
+namespace Node\LinkedProduct\Test\Core\Service;
 
-use Node\\LinkedProduct\\Core\\Service\\LinkedProductLoader;
-use PHPUnit\\Framework\\TestCase;
-use Shopware\\Core\\Content\\Product\\Aggregate\\ProductVisibility\\ProductVisibilityCollection;
-use Shopware\\Core\\Content\\Product\\Aggregate\\ProductVisibility\\ProductVisibilityEntity;
-use Shopware\\Core\\Content\\Product\\ProductCollection;
-use Shopware\\Core\\Content\\Product\\ProductEntity;
-use Shopware\\Core\\Content\\Product\\ProductVisibilityDefinition;
-use Shopware\\Core\\Framework\\Context;
-use Shopware\\Core\\Framework\\DataAbstractionLayer\\Search\\Criteria;
-use Shopware\\Core\\Framework\\DataAbstractionLayer\\Search\\EntitySearchResult;
-use Shopware\\Core\\System\\SalesChannel\\Entity\\SalesChannelRepository;
-use Shopware\\Core\\System\\SalesChannel\\SalesChannelContext;
-use Shopware\\Core\\System\\SalesChannel\\SalesChannelEntity;
+use Node\LinkedProduct\Core\Service\LinkedProductLoader;
+use PHPUnit\Framework\TestCase;
+use Shopware\Core\Content\Product\Aggregate\ProductVisibility\ProductVisibilityCollection;
+use Shopware\Core\Content\Product\Aggregate\ProductVisibility\ProductVisibilityEntity;
+use Shopware\Core\Content\Product\ProductCollection;
+use Shopware\Core\Content\Product\ProductEntity;
+use Shopware\Core\Content\Product\ProductVisibilityDefinition;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
+use Shopware\Core\System\SalesChannel\Entity\SalesChannelRepository;
+use Shopware\Core\System\SalesChannel\SalesChannelContext;
+use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 
 class LinkedProductLoaderTest extends TestCase
 {

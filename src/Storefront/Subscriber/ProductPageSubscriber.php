@@ -1,12 +1,12 @@
 <?php
 
-namespace Node\\LinkedProduct\\Storefront\\Subscriber;
+namespace Node\LinkedProduct\Storefront\Subscriber;
 
-use Node\\LinkedProduct\\Cms\\Element\\LinkedProductCmsElement;
-use Node\\LinkedProduct\\Core\\Service\\LinkedProductLoader;
-use Node\\LinkedProduct\\NodeLinkedProduct;
-use Shopware\\Storefront\\Page\\Product\\ProductPageLoadedEvent;
-use Symfony\\Component\\EventDispatcher\\EventSubscriberInterface;
+use Node\LinkedProduct\Cms\Element\LinkedProductCmsElement;
+use Node\LinkedProduct\Core\Service\LinkedProductLoader;
+use Node\LinkedProduct\NodeLinkedProduct;
+use Shopware\Storefront\Page\Product\ProductPageLoadedEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ProductPageSubscriber implements EventSubscriberInterface
 {

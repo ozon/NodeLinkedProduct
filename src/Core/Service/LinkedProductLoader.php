@@ -1,12 +1,12 @@
 <?php
 
-namespace Node\\LinkedProduct\\Core\\Service;
+namespace Node\LinkedProduct\Core\Service;
 
-use Shopware\\Core\\Content\\Product\\ProductEntity;
-use Shopware\\Core\\Content\\Product\\ProductVisibilityDefinition;
-use Shopware\\Core\\Framework\\DataAbstractionLayer\\Search\\Criteria;
-use Shopware\\Core\\System\\SalesChannel\\Entity\\SalesChannelRepository;
-use Shopware\\Core\\System\\SalesChannel\\SalesChannelContext;
+use Shopware\Core\Content\Product\ProductEntity;
+use Shopware\Core\Content\Product\ProductVisibilityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\System\SalesChannel\Entity\SalesChannelRepository;
+use Shopware\Core\System\SalesChannel\SalesChannelContext;
 
 class LinkedProductLoader
 {

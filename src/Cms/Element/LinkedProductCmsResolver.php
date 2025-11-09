@@ -1,19 +1,19 @@
 <?php
 
-namespace Node\\LinkedProduct\\Cms\\Element;
+namespace Node\LinkedProduct\Cms\Element;
 
-use Node\\LinkedProduct\\Core\\Service\\LinkedProductLoader;
-use Node\\LinkedProduct\\NodeLinkedProduct;
-use Shopware\\Core\\Content\\Cms\\AbstractCmsElementResolver;
-use Shopware\\Core\\Content\\Cms\\Aggregate\\CmsSlot\\CmsSlotEntity;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\CriteriaCollection;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\ElementDataCollection;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\FieldConfig;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\ResolverContext\\CmsSlotEntityResolverContext;
-use Shopware\\Core\\Content\\Cms\\DataResolver\\ResolverContext\\ResolverContext;
-use Shopware\\Core\\Content\\Product\\ProductDefinition;
-use Shopware\\Core\\Framework\\DataAbstractionLayer\\Search\\Criteria;
-use Shopware\\Core\\System\\SalesChannel\\SalesChannelContext;
+use Node\LinkedProduct\Core\Service\LinkedProductLoader;
+use Node\LinkedProduct\NodeLinkedProduct;
+use Shopware\Core\Content\Cms\AbstractCmsElementResolver;
+use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
+use Shopware\Core\Content\Cms\DataResolver\CriteriaCollection;
+use Shopware\Core\Content\Cms\DataResolver\ElementDataCollection;
+use Shopware\Core\Content\Cms\DataResolver\FieldConfig;
+use Shopware\Core\Content\Cms\DataResolver\ResolverContext\CmsSlotEntityResolverContext;
+use Shopware\Core\Content\Cms\DataResolver\ResolverContext\ResolverContext;
+use Shopware\Core\Content\Product\ProductDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\System\SalesChannel\SalesChannelContext;
 
 class LinkedProductCmsResolver extends AbstractCmsElementResolver
 {
