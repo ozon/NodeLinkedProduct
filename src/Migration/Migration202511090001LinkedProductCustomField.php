@@ -23,7 +23,7 @@ class Migration202511090001LinkedProductCustomField extends MigrationStep
         $now = (new DateTimeImmutable())->format(Defaults::STORAGE_DATE_TIME_FORMAT);
 
         $fieldSetId = $this->ensureCustomFieldSet($connection, $now);
-        $this->ensureCustomFieldSetRelation($connection, $fieldSetId);
+        $this->ensureCustomFieldSetRelation($connection, $fieldSetId, $now);
         $this->ensureCustomField($connection, $fieldSetId, $now);
     }
 
@@ -61,7 +61,7 @@ class Migration202511090001LinkedProductCustomField extends MigrationStep
         return $fieldSetId;
     }
 
-    private function ensureCustomFieldSetRelation(Connection $connection, string $fieldSetId): void
+    private function ensureCustomFieldSetRelation(Connection $connection, string $fieldSetId, string $now): void
     {
         $relationExists = $connection->fetchOne(
             'SELECT 1 FROM `custom_field_set_relation` WHERE `set_id` = :setId AND `entity_name` = :entity LIMIT 1',
@@ -76,6 +76,7 @@ class Migration202511090001LinkedProductCustomField extends MigrationStep
             'id' => Uuid::randomBytes(),
             'set_id' => $fieldSetId,
             'entity_name' => 'product',
+            'created_at' => $now,
         ]);
     }
 
