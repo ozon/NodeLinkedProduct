@@ -1,11 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Node\LinkedProduct\Cms\Element;
 
 use Node\LinkedProduct\Core\Service\LinkedProductLoader;
-use Node\LinkedProduct\NodeLinkedProduct;
 use Shopware\Core\Content\Cms\AbstractCmsElementResolver;
 use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
 use Shopware\Core\Content\Cms\DataResolver\CriteriaCollection;
@@ -19,8 +16,8 @@ use Shopware\Core\System\SalesChannel\SalesChannelContext;
 
 class LinkedProductCmsResolver extends AbstractCmsElementResolver
 {
-    public const CMS_TYPE = 'node-linked-product';
-    public const CONFIG_KEY_PRODUCT_ID = 'linkedProductId';
+    private const CMS_TYPE = 'node-linked-product';
+    private const CONFIG_KEY_PRODUCT_ID = 'product';
 
     private LinkedProductLoader $linkedProductLoader;
 
@@ -36,7 +33,7 @@ class LinkedProductCmsResolver extends AbstractCmsElementResolver
 
     public function collect(CmsSlotEntity $slot, ResolverContext $resolverContext): ?CriteriaCollection
     {
-        $productId = $this->resolveConfiguredProductId($slot, $resolverContext);
+        $productId = $this->resolveConfiguredProductId($slot);
         if ($productId === null) {
             return null;
         }
@@ -54,55 +51,35 @@ class LinkedProductCmsResolver extends AbstractCmsElementResolver
 
     public function enrich(CmsSlotEntity $slot, ResolverContext $resolverContext, ElementDataCollection $result): void
     {
-        $productId = $this->resolveConfiguredProductId($slot, $resolverContext);
+        $element = new LinkedProductCmsElement();
+        $productId = $this->resolveConfiguredProductId($slot);
+
         if ($productId === null) {
+            $slot->setData($element);
             return;
         }
 
         $salesChannelContext = $resolverContext->getSalesChannelContext();
-        $element = new LinkedProductCmsElement();
-
-        if ($salesChannelContext instanceof SalesChannelContext) {
-            $product = $this->linkedProductLoader->loadById($productId, $salesChannelContext);
-            $element->setProduct($product);
-        }
+        $product = $this->linkedProductLoader->loadById($productId, $salesChannelContext);
+        $element->setProduct($product);
 
         $slot->setData($element);
     }
 
-    private function resolveConfiguredProductId(CmsSlotEntity $slot, ResolverContext $resolverContext): ?string
+    private function resolveConfiguredProductId(CmsSlotEntity $slot): ?string
     {
         $fieldConfig = $slot->getFieldConfig();
-        if ($fieldConfig !== null && $fieldConfig->has(self::CONFIG_KEY_PRODUCT_ID)) {
-            $configField = $fieldConfig->get(self::CONFIG_KEY_PRODUCT_ID);
-            $value = null;
-
-            if ($configField instanceof FieldConfig) {
-                $value = $configField->getValue();
-            } elseif (is_array($configField) && isset($configField['value'])) {
-                $value = $configField['value'];
-            } else {
-                $value = $configField;
-            }
-
-            if (is_string($value) && $value !== '') {
-                return $value;
-            }
+        if ($fieldConfig === null || !$fieldConfig->has(self::CONFIG_KEY_PRODUCT_ID)) {
+            return null;
         }
 
-        if ($resolverContext instanceof CmsSlotEntityResolverContext) {
-            $entity = $resolverContext->getEntity();
-            if ($entity !== null && method_exists($entity, 'getCustomFields')) {
-                $customFields = $entity->getCustomFields();
-                if (is_array($customFields)) {
-                    $value = $customFields[NodeLinkedProduct::CUSTOM_FIELD_NAME] ?? null;
-                    if (is_string($value) && $value !== '') {
-                        return $value;
-                    }
-                }
-            }
+        $configField = $fieldConfig->get(self::CONFIG_KEY_PRODUCT_ID);
+        if ($configField === null) {
+            return null;
         }
 
-        return null;
+        $value = $configField->getValue();
+
+        return $value;
     }
 }
