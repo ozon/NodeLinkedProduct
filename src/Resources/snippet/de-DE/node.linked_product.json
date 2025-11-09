@@ -1,7 +1,8 @@
 {
     "node": {
         "linked_product": {
-            "title": "Passendes Zusatzprodukt"
+            "title": "Passendes Zusatzprodukt",
+            "cmsLabel": "Verknüpftes Produkt"
         }
     }
 }
