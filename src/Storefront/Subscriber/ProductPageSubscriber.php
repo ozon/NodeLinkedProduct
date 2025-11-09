@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Node\LinkedProduct\Storefront\Subscriber;
 
@@ -29,28 +27,28 @@ class ProductPageSubscriber implements EventSubscriberInterface
     public function onProductPageLoaded(ProductPageLoadedEvent $event): void
     {
         $product = $event->getPage()->getProduct();
-        if ($product === null) {
-            return;
-        }
-
         $customFields = $product->getCustomFields();
-        if (!is_array($customFields)) {
+
+        if (empty($customFields) || !isset($customFields[NodeLinkedProduct::LINKED_PRODUCT_CUSTOM_FIELD_NAME])) {
+            // No custom field set, do nothing
             return;
         }
 
-        $linkedProductId = $customFields[NodeLinkedProduct::CUSTOM_FIELD_NAME] ?? null;
-        if (!is_string($linkedProductId) || $linkedProductId === '') {
+        $linkedProductId = $customFields[NodeLinkedProduct::LINKED_PRODUCT_CUSTOM_FIELD_NAME];
+
+        if (empty($linkedProductId)) {
             return;
         }
 
         $linkedProduct = $this->linkedProductLoader->loadById($linkedProductId, $event->getSalesChannelContext());
+
+        // Product not found, not active, or not visible
         if ($linkedProduct === null) {
             return;
         }
 
         $element = new LinkedProductCmsElement();
         $element->setProduct($linkedProduct);
-
         $event->getPage()->addExtension('nodeLinkedProduct', $element);
     }
 }
